@@ -49,11 +49,12 @@ class MainActivity : AppCompatActivity() {
                 showRecyclerList()
             }
             R.id.action_wishlist -> {
-
-                var intent = Intent(this, WishlistActivity::class.java)
+                val intent = Intent(this, WishlistActivity::class.java)
                 startActivity(intent)
             }
             R.id.action_about -> {
+                val intent = Intent(this, AboutActivity::class.java)
+                startActivity(intent)
             }
         }
     }

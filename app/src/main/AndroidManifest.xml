@@ -9,12 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".WishlistActivity"
-            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".AboutActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".WishlistActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".WishlistAdapter" />
-        <activity android:name=".DetailActivity"
-            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".DetailActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

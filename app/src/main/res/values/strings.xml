@@ -5,4 +5,10 @@
     <string name="my_wishlist">My Wishlist</string>
     <string name="about_developer">About Developer</string>
     <string name="favorite">Favorite</string>
+    <string name="aboutNama">Stanley Mesa Ariel</string>
+    <string name="nama">Nama :</string>
+    <string name="email">Email :</string>
+    <string name="stanleymesa2001_gmail_com">stanleymesa2001@gmail.com</string>
+    <string name="about_developer_judul">About Developer..</string>
+    <string name="description">Description :</string>
 </resources>
