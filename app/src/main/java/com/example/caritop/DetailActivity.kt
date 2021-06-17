@@ -23,6 +23,9 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var tvHarga: TextView
     private lateinit var tvDesc: TextView
     private lateinit var btnWishlist: Button
+    private lateinit var photoPenjual: ImageView
+    private lateinit var tvNamaPenjual: TextView
+    private lateinit var btnCall: Button
     private lateinit var listLaptop: ArrayList<ModelLaptop>
 
     companion object {
@@ -30,10 +33,16 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         const val SHARED_PREFS_PHOTO = "shared_prefs_photo"
         const val SHARED_PREFS_DESC = "shared_prefs_desc"
         const val SHARED_PREFS_HARGA = "shared_prefs_harga"
+        const val SHARED_PREFS_NAMA_PENJUAL = "shared_prefs_nama_penjual"
+        const val SHARED_PREFS_PHOTO_PENJUAL = "shared_prefs_photo_penjual"
+        const val SHARED_PREFS_NOHP_PENJUAL = "shared_prefs_nohp_penjual"
         const val STATE_NAMA = "state_nama"
         const val STATE_PHOTO = "state_photo"
         const val STATE_DESC = "state_desc"
         const val STATE_HARGA = "state_harga"
+        const val STATE_NAMA_PENJUAL = "state_nama_penjual"
+        const val STATE_PHOTO_PENJUAL = "state_photo_penjual"
+        const val STATE_NOHP_PENJUAL = "state_nohp_penjuaL"
     }
 
     object dataW {
@@ -41,6 +50,9 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         var photo: ArrayList<Int> = arrayListOf()
         var desc: ArrayList<String> = arrayListOf()
         var harga: ArrayList<String> = arrayListOf()
+        var namaPenjual: ArrayList<String> = arrayListOf()
+        var photoPenjual: ArrayList<Int> = arrayListOf()
+        var noHpPenjual: ArrayList<String> = arrayListOf()
 
         val dataWishlist: ArrayList<ModelLaptop>
             get() {
@@ -51,6 +63,9 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
                     mL.name = nama[position]
                     mL.desc = desc[position]
                     mL.harga = harga[position]
+                    mL.namaPenjual = namaPenjual[position]
+                    mL.photoPenjual = photoPenjual[position]
+                    mL.noHpPenjual = noHpPenjual[position]
                     list.add(mL)
                 }
                 return list
@@ -63,10 +78,14 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         supportActionBar?.title = "Detail"
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
+        // deklarasi
         imgPhoto = findViewById(R.id.img_photo)
+        photoPenjual = findViewById(R.id.photo_penjual)
         tvNama = findViewById(R.id.tv_nama_laptop)
         tvHarga = findViewById(R.id.tv_harga_laptop)
         tvDesc = findViewById(R.id.tv_info_laptop)
+        tvNamaPenjual = findViewById(R.id.tv_nama_penjual)
+        btnCall = findViewById(R.id.btn_call)
         btnWishlist = findViewById(R.id.btn_wishlist)
 
         listLaptop = intent.getParcelableArrayListExtra("indices")
@@ -83,11 +102,14 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         Glide.with(this)
             .load(list[0].photo)
             .into(imgPhoto)
+        Glide.with(this)
+            .load(list[0].photoPenjual)
+            .into(photoPenjual)
         tvNama.text = list[0].name
         tvHarga.text = list[0].harga
         tvDesc.text = list[0].desc
+        tvNamaPenjual.text = list[0].namaPenjual
 
-        val harga = list[0].harga
     }
 
     private fun isAlreadyinWishlist(): Boolean {
@@ -97,6 +119,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         return false
     }
 
+    // mengirimkan data ke wishlist
     fun getDataWishlist(): ArrayList<ModelLaptop> {
         var listData: ArrayList<ModelLaptop> = arrayListOf()
         listData.addAll(dataW.dataWishlist)
@@ -106,21 +129,32 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v?.id) {
             R.id.btn_wishlist -> {
+                // jika diklik, ambil data dari detail
                 val listNama = listLaptop[0].name
                 val listPhoto = listLaptop[0].photo
                 val listDesc = listLaptop[0].desc
                 val listHarga = listLaptop[0].harga
+                val listNamaPenjual = listLaptop[0].namaPenjual
+                val listPhotoPenjual = listLaptop[0].photoPenjual
+                val listNoHpPenjual = listLaptop[0].noHpPenjual
 
                 if (!isAlreadyinWishlist()) {
+                    // jika belum ada di wishlist, ditambahkan ke wishlist
                     dataW.nama.add(listNama)
                     dataW.photo.add(listPhoto)
                     dataW.desc.add(listDesc)
                     dataW.harga.add(listHarga)
+                    dataW.namaPenjual.add(listNamaPenjual)
+                    dataW.photoPenjual.add(listPhotoPenjual)
+                    dataW.noHpPenjual.add(listNoHpPenjual)
 
                     saveNamaWishlist()
                     savePhotoWishlist()
                     saveDescWishlist()
                     saveHargaWishlist()
+                    saveNamaPenjualWishlist()
+                    savePhotoPenjualWishlist()
+                    saveNoHpPenjualWishlist()
                     Toast.makeText(this, "$listNama masuk ke list favorit!", Toast.LENGTH_SHORT).show()
                     btnWishlist.setText("Unfavorite")
                 } else {
@@ -129,11 +163,17 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
                     dataW.photo.removeAt(position)
                     dataW.desc.removeAt(position)
                     dataW.harga.removeAt(position)
+                    dataW.namaPenjual.removeAt(position)
+                    dataW.photoPenjual.removeAt(position)
+                    dataW.noHpPenjual.removeAt(position)
 
                     saveNamaWishlist()
                     savePhotoWishlist()
                     saveDescWishlist()
                     saveHargaWishlist()
+                    saveNamaPenjualWishlist()
+                    savePhotoPenjualWishlist()
+                    saveNoHpPenjualWishlist()
                     Toast.makeText(this, "$listNama dihapus dari favorit!", Toast.LENGTH_SHORT).show()
                     btnWishlist.setText("Favorite")
                 }
@@ -174,6 +214,33 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         val gson = Gson()
         val json: String = gson.toJson(dataW.harga)
         editor.putString(STATE_HARGA, json)
+        editor.apply()
+    }
+
+    fun saveNamaPenjualWishlist() {
+        val sharedPreferences: SharedPreferences = getSharedPreferences(SHARED_PREFS_NAMA_PENJUAL, Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        val gson = Gson()
+        val json: String = gson.toJson(dataW.namaPenjual)
+        editor.putString(STATE_NAMA_PENJUAL, json)
+        editor.apply()
+    }
+
+    fun savePhotoPenjualWishlist() {
+        val sharedPreferences: SharedPreferences = getSharedPreferences(SHARED_PREFS_PHOTO_PENJUAL, Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        val gson = Gson()
+        val json: String = gson.toJson(dataW.photoPenjual)
+        editor.putString(STATE_PHOTO_PENJUAL, json)
+        editor.apply()
+    }
+
+    fun saveNoHpPenjualWishlist() {
+        val sharedPreferences: SharedPreferences = getSharedPreferences(SHARED_PREFS_NOHP_PENJUAL, Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        val gson = Gson()
+        val json: String = gson.toJson(dataW.noHpPenjual)
+        editor.putString(STATE_NOHP_PENJUAL, json)
         editor.apply()
     }
 

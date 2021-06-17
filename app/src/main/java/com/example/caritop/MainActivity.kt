@@ -81,6 +81,9 @@ class MainActivity : AppCompatActivity() {
         modelLaptop.photo = data.photo
         modelLaptop.desc = data.desc
         modelLaptop.harga = data.harga
+        modelLaptop.namaPenjual = data.namaPenjual
+        modelLaptop.photoPenjual = data.photoPenjual
+        modelLaptop.noHpPenjual = data.noHpPenjual
         listToDetail.add(modelLaptop)
 
         val intent = Intent(this, DetailActivity::class.java)

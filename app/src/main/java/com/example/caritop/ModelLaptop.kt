@@ -9,5 +9,8 @@ data class ModelLaptop(
     var name: String = "",
     var photo: Int = 0,
     var desc: String = "",
-    var harga: String = ""
+    var harga: String = "",
+    var photoPenjual: Int = 0,
+    var namaPenjual: String = "",
+    var noHpPenjual: String = ""
 ) : Parcelable

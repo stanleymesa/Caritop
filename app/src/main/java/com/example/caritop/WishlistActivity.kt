@@ -27,6 +27,9 @@ class WishlistActivity : AppCompatActivity() {
         loadPhotoWishlist()
         loadDescWishlist()
         loadHargaWishlist()
+        loadNamaPenjualWishlist()
+        loadPhotoPenjualWishlist()
+        loadNoHpPenjualWishlist()
         showRecyclerWishlist()
 
     }
@@ -51,6 +54,9 @@ class WishlistActivity : AppCompatActivity() {
         modelLaptop.photo = data.photo
         modelLaptop.desc = data.desc
         modelLaptop.harga = data.harga
+        modelLaptop.namaPenjual = data.namaPenjual
+        modelLaptop.photoPenjual = data.photoPenjual
+        modelLaptop.noHpPenjual = data.noHpPenjual
         listToDetail.add(modelLaptop)
 
         val intent = Intent(this, DetailActivity::class.java)
@@ -81,7 +87,7 @@ class WishlistActivity : AppCompatActivity() {
     fun loadDescWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(DetailActivity.SHARED_PREFS_DESC, Context.MODE_PRIVATE)
         val gson = Gson()
-        val json = sharedPreferences.getString(DetailActivity.STATE_DESC, "fdsfsdf")
+        val json = sharedPreferences.getString(DetailActivity.STATE_DESC, null)
         val type = object : TypeToken<ArrayList<String>>() {}.type
         DetailActivity.dataW.desc = gson.fromJson(json, type)
 
@@ -90,9 +96,32 @@ class WishlistActivity : AppCompatActivity() {
     fun loadHargaWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(DetailActivity.SHARED_PREFS_HARGA, Context.MODE_PRIVATE)
         val gson = Gson()
-        val json  = sharedPreferences.getString(DetailActivity.STATE_HARGA, "oioi")
+        val json  = sharedPreferences.getString(DetailActivity.STATE_HARGA, null)
         val type = object : TypeToken<ArrayList<String>>() {}.type
         DetailActivity.dataW.harga = gson.fromJson(json, type)
+    }
 
+    fun loadNamaPenjualWishlist() {
+        val sharedPreferences: SharedPreferences = getSharedPreferences(DetailActivity.SHARED_PREFS_NAMA_PENJUAL, Context.MODE_PRIVATE)
+        val gson = Gson()
+        val json  = sharedPreferences.getString(DetailActivity.STATE_NAMA_PENJUAL, "asdhk")
+        val type = object : TypeToken<ArrayList<String>>() {}.type
+        DetailActivity.dataW.namaPenjual = gson.fromJson(json, type)
+    }
+
+    fun loadPhotoPenjualWishlist() {
+        val sharedPreferences: SharedPreferences = getSharedPreferences(DetailActivity.SHARED_PREFS_PHOTO_PENJUAL, Context.MODE_PRIVATE)
+        val gson = Gson()
+        val json  = sharedPreferences.getString(DetailActivity.STATE_PHOTO_PENJUAL, null)
+        val type = object : TypeToken<ArrayList<Int>>() {}.type
+        DetailActivity.dataW.photoPenjual = gson.fromJson(json, type)
+    }
+
+    fun loadNoHpPenjualWishlist() {
+        val sharedPreferences: SharedPreferences = getSharedPreferences(DetailActivity.SHARED_PREFS_NOHP_PENJUAL, Context.MODE_PRIVATE)
+        val gson = Gson()
+        val json  = sharedPreferences.getString(DetailActivity.STATE_NOHP_PENJUAL, "aaa")
+        val type = object : TypeToken<ArrayList<String>>() {}.type
+        DetailActivity.dataW.noHpPenjual = gson.fromJson(json, type)
     }
 }

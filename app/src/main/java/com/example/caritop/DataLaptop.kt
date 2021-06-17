@@ -70,6 +70,45 @@ class DataLaptop {
     "Rp 14.999.000",
     "Rp 16.499.000")
 
+    private val namaPenjualLaptop = arrayListOf("Sam Rudy",
+    "Bella Shakir",
+    "Joko Siswanto",
+    "Gisella Yadi",
+    "Vincent Setiawan",
+    "Aurell Joe",
+    "Santoso Subekti",
+    "Emma Watson",
+    "Tom Kirma",
+    "Angel Setiawan",
+    "Marvel Cahyadi",
+    "Fatmawati")
+
+    private val noHpPenjualLaptop = arrayListOf("08214379372",
+    "08254763473",
+    "08324726384",
+    "08273847632",
+    "08237463287",
+    "08238674238",
+    "08327462388",
+    "08586796578",
+    "08547659867",
+    "08560870650",
+    "08345795486",
+    "08467805859")
+
+    private val photoPenjualLaptop = arrayListOf(R.drawable.man1,
+    R.drawable.girl1,
+    R.drawable.man2,
+    R.drawable.girl2,
+    R.drawable.man3,
+    R.drawable.girl3,
+    R.drawable.man4,
+    R.drawable.girl4,
+    R.drawable.man5,
+    R.drawable.girl5,
+    R.drawable.man6,
+    R.drawable.girl6)
+
     val listData: ArrayList<ModelLaptop>
         get(){
             val listLaptop = arrayListOf<ModelLaptop>()
@@ -80,6 +119,9 @@ class DataLaptop {
                 modelLaptop.desc = descLaptop[position]
                 modelLaptop.photo = photoLaptop[position]
                 modelLaptop.harga = hargaLaptop[position]
+                modelLaptop.namaPenjual = namaPenjualLaptop[position]
+                modelLaptop.photoPenjual = photoPenjualLaptop[position]
+                modelLaptop.noHpPenjual = noHpPenjualLaptop[position]
 
                 listLaptop.add(modelLaptop)
             }
