@@ -43,7 +43,7 @@ class ListLaptopAdapter(val listLaptop: ArrayList<ModelLaptop>): RecyclerView.Ad
         holder.tvNamaLaptop.text = laptop.name
         holder.tvInfoLaptop.text = laptop.desc
 
-        holder.itemView.setOnClickListener(){
+        holder.itemView.setOnClickListener{
             onItemClickCallback.onItemClicked(listLaptop[holder.adapterPosition])
         }
     }

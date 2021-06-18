@@ -30,7 +30,7 @@ class WishlistActivity : AppCompatActivity() {
 
     private fun showRecyclerWishlist() {
         rv_wishlist.layoutManager = LinearLayoutManager(this)
-        var wishlistAdapter = WishlistAdapter(DetailActivity().getDataWishlist())
+        val wishlistAdapter = WishlistAdapter(DetailActivity().getDataWishlist())
         rv_wishlist.adapter = wishlistAdapter
 
         wishlistAdapter.setOnItemClickCallback(object: WishlistAdapter.OnItemClickCallback{
@@ -41,7 +41,7 @@ class WishlistActivity : AppCompatActivity() {
     }
 
     private fun goToDetail(data: ModelLaptop) {
-        var listToDetail: ArrayList<ModelLaptop> = arrayListOf()
+        val listToDetail: ArrayList<ModelLaptop> = arrayListOf()
         val modelLaptop = ModelLaptop()
         modelLaptop.merk = data.merk
         modelLaptop.name = data.name

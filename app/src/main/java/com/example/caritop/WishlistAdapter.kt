@@ -39,7 +39,7 @@ class WishlistAdapter(val wishList: ArrayList<ModelLaptop>): RecyclerView.Adapte
 
         holder.merkLaptop.text = laptop.name
 
-        holder.itemView.setOnClickListener() {
+        holder.itemView.setOnClickListener {
             onItemClickCallback.onItemClicked(wishList[holder.adapterPosition])
         }
     }

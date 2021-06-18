@@ -12,6 +12,7 @@
         android:orientation="vertical">
 
         <ImageView
+            tools:ignore="ContentDescription"
             android:id="@+id/img_photo"
             android:layout_width="match_parent"
             android:layout_height="260dp"
@@ -69,7 +70,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:text="Penjual : "
+            android:text="@string/penjual"
             android:textStyle="bold"
             android:textSize="16sp"/>
         
@@ -113,7 +114,7 @@
                         android:layout_width="50dp"
                         android:layout_height="20dp"
                         android:text="@string/call"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:layout_marginStart="16dp"
                         android:textColor="@color/white"
                         android:background="@color/callButton"/>

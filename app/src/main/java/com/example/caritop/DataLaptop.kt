@@ -1,7 +1,5 @@
 package com.example.caritop
 
-import android.graphics.ColorSpace
-
 class DataLaptop {
     private val merkLaptop = arrayListOf("ASUS",
     "ASUS",
