@@ -23,20 +23,16 @@ class WishlistActivity : AppCompatActivity() {
         rv_wishlist = findViewById(R.id.rv_wishlist)
         rv_wishlist.setHasFixedSize(true)
 
-        loadNamaWishlist()
-        loadPhotoWishlist()
-        loadDescWishlist()
-        loadHargaWishlist()
-        loadNamaPenjualWishlist()
-        loadPhotoPenjualWishlist()
-        loadNoHpPenjualWishlist()
+        // jika data wishlist kosong, jangan load wishlist
+        if (DetailActivity.dataW.dataWishlist.size != 0) {
+            loadAllWishlist()
+        }
         showRecyclerWishlist()
-
     }
 
     private fun showRecyclerWishlist() {
         rv_wishlist.layoutManager = LinearLayoutManager(this)
-        var wishlistAdapter = WishlistAdapter(DetailActivity().getDataWishlist())
+        val wishlistAdapter = WishlistAdapter(DetailActivity().getDataWishlist())
         rv_wishlist.adapter = wishlistAdapter
 
         wishlistAdapter.setOnItemClickCallback(object: WishlistAdapter.OnItemClickCallback{
@@ -47,7 +43,7 @@ class WishlistActivity : AppCompatActivity() {
     }
 
     private fun goToDetail(data: ModelLaptop) {
-        var listToDetail: ArrayList<ModelLaptop> = arrayListOf()
+        val listToDetail: ArrayList<ModelLaptop> = arrayListOf()
         val modelLaptop = ModelLaptop()
         modelLaptop.merk = data.merk
         modelLaptop.name = data.name
@@ -64,6 +60,16 @@ class WishlistActivity : AppCompatActivity() {
         intent.putExtra("from", "WishlistActivity")
         startActivity(intent)
         this.finish()
+    }
+
+    private fun loadAllWishlist() {
+        loadNamaWishlist()
+        loadPhotoWishlist()
+        loadDescWishlist()
+        loadHargaWishlist()
+        loadNamaPenjualWishlist()
+        loadPhotoPenjualWishlist()
+        loadNoHpPenjualWishlist()
     }
 
     private fun loadNamaWishlist() {
@@ -104,7 +110,7 @@ class WishlistActivity : AppCompatActivity() {
     private fun loadNamaPenjualWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(DetailActivity.SHARED_PREFS_NAMA_PENJUAL, Context.MODE_PRIVATE)
         val gson = Gson()
-        val json  = sharedPreferences.getString(DetailActivity.STATE_NAMA_PENJUAL, "asdhk")
+        val json  = sharedPreferences.getString(DetailActivity.STATE_NAMA_PENJUAL, null)
         val type = object : TypeToken<ArrayList<String>>() {}.type
         DetailActivity.dataW.namaPenjual = gson.fromJson(json, type)
     }
@@ -120,7 +126,7 @@ class WishlistActivity : AppCompatActivity() {
     private fun loadNoHpPenjualWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(DetailActivity.SHARED_PREFS_NOHP_PENJUAL, Context.MODE_PRIVATE)
         val gson = Gson()
-        val json  = sharedPreferences.getString(DetailActivity.STATE_NOHP_PENJUAL, "aaa")
+        val json  = sharedPreferences.getString(DetailActivity.STATE_NOHP_PENJUAL, null)
         val type = object : TypeToken<ArrayList<String>>() {}.type
         DetailActivity.dataW.noHpPenjual = gson.fromJson(json, type)
     }

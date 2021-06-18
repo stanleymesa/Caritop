@@ -123,7 +123,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
 
     // mengirimkan data ke wishlist
     fun getDataWishlist(): ArrayList<ModelLaptop> {
-        var listData: ArrayList<ModelLaptop> = arrayListOf()
+        val listData: ArrayList<ModelLaptop> = arrayListOf()
         listData.addAll(dataW.dataWishlist)
         return listData
     }
@@ -150,13 +150,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
                     dataW.photoPenjual.add(listPhotoPenjual)
                     dataW.noHpPenjual.add(listNoHpPenjual)
 
-                    saveNamaWishlist()
-                    savePhotoWishlist()
-                    saveDescWishlist()
-                    saveHargaWishlist()
-                    saveNamaPenjualWishlist()
-                    savePhotoPenjualWishlist()
-                    saveNoHpPenjualWishlist()
+                    saveAllWishlist()
                     Toast.makeText(this, "$listNama masuk ke list favorit!", Toast.LENGTH_SHORT).show()
                     btnWishlist.setText("Unfavorite")
                 } else {
@@ -169,13 +163,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
                     dataW.photoPenjual.removeAt(position)
                     dataW.noHpPenjual.removeAt(position)
 
-                    saveNamaWishlist()
-                    savePhotoWishlist()
-                    saveDescWishlist()
-                    saveHargaWishlist()
-                    saveNamaPenjualWishlist()
-                    savePhotoPenjualWishlist()
-                    saveNoHpPenjualWishlist()
+                    saveAllWishlist()
                     Toast.makeText(this, "$listNama dihapus dari favorit!", Toast.LENGTH_SHORT).show()
                     btnWishlist.setText("Favorite")
                 }
@@ -188,7 +176,17 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-     private fun saveNamaWishlist() {
+    private fun  saveAllWishlist() {
+        saveNamaWishlist()
+        savePhotoWishlist()
+        saveDescWishlist()
+        saveHargaWishlist()
+        saveNamaPenjualWishlist()
+        savePhotoPenjualWishlist()
+        saveNoHpPenjualWishlist()
+    }
+
+    private fun saveNamaWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(SHARED_PREFS_NAMA, Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         val gson = Gson()
@@ -197,7 +195,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         editor.apply()
     }
 
-     private fun savePhotoWishlist() {
+    private fun savePhotoWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(SHARED_PREFS_PHOTO, Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         val gson = Gson()
@@ -253,7 +251,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onBackPressed() {
         var myIntent: Intent? = null
-        var source = intent.getStringExtra("from")
+        val source = intent.getStringExtra("from")
 
         when(source) {
             "WishlistActivity" -> {
