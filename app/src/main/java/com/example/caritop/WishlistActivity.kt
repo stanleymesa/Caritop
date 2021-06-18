@@ -23,13 +23,7 @@ class WishlistActivity : AppCompatActivity() {
         rv_wishlist = findViewById(R.id.rv_wishlist)
         rv_wishlist.setHasFixedSize(true)
 
-        loadNamaWishlist()
-        loadPhotoWishlist()
-        loadDescWishlist()
-        loadHargaWishlist()
-        loadNamaPenjualWishlist()
-        loadPhotoPenjualWishlist()
-        loadNoHpPenjualWishlist()
+        loadAllWishlist()
         showRecyclerWishlist()
 
     }
@@ -64,6 +58,16 @@ class WishlistActivity : AppCompatActivity() {
         intent.putExtra("from", "WishlistActivity")
         startActivity(intent)
         this.finish()
+    }
+
+    private fun loadAllWishlist() {
+        loadNamaWishlist()
+        loadPhotoWishlist()
+        loadDescWishlist()
+        loadHargaWishlist()
+        loadNamaPenjualWishlist()
+        loadPhotoPenjualWishlist()
+        loadNoHpPenjualWishlist()
     }
 
     private fun loadNamaWishlist() {

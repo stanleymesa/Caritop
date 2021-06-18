@@ -150,13 +150,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
                     dataW.photoPenjual.add(listPhotoPenjual)
                     dataW.noHpPenjual.add(listNoHpPenjual)
 
-                    saveNamaWishlist()
-                    savePhotoWishlist()
-                    saveDescWishlist()
-                    saveHargaWishlist()
-                    saveNamaPenjualWishlist()
-                    savePhotoPenjualWishlist()
-                    saveNoHpPenjualWishlist()
+                    saveAllFavorites()
                     Toast.makeText(this, "$listNama masuk ke list favorit!", Toast.LENGTH_SHORT).show()
                     btnWishlist.setText("Unfavorite")
                 } else {
@@ -169,13 +163,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
                     dataW.photoPenjual.removeAt(position)
                     dataW.noHpPenjual.removeAt(position)
 
-                    saveNamaWishlist()
-                    savePhotoWishlist()
-                    saveDescWishlist()
-                    saveHargaWishlist()
-                    saveNamaPenjualWishlist()
-                    savePhotoPenjualWishlist()
-                    saveNoHpPenjualWishlist()
+                    saveAllFavorites()
                     Toast.makeText(this, "$listNama dihapus dari favorit!", Toast.LENGTH_SHORT).show()
                     btnWishlist.setText("Favorite")
                 }
@@ -186,6 +174,16 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
         }
+    }
+
+    private fun saveAllFavorites() {
+        saveNamaWishlist()
+        savePhotoWishlist()
+        saveDescWishlist()
+        saveHargaWishlist()
+        saveNamaPenjualWishlist()
+        savePhotoPenjualWishlist()
+        saveNoHpPenjualWishlist()
     }
 
      private fun saveNamaWishlist() {
