@@ -73,7 +73,6 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
             }
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
@@ -124,12 +123,11 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
 
     // mengirimkan data ke wishlist
     fun getDataWishlist(): ArrayList<ModelLaptop> {
-        val listData: ArrayList<ModelLaptop> = arrayListOf()
+        var listData: ArrayList<ModelLaptop> = arrayListOf()
         listData.addAll(dataW.dataWishlist)
         return listData
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onClick(v: View?) {
         when(v?.id) {
             R.id.btn_wishlist -> {
@@ -255,7 +253,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onBackPressed() {
         var myIntent: Intent? = null
-        val source = intent.getStringExtra("from")
+        var source = intent.getStringExtra("from")
 
         when(source) {
             "WishlistActivity" -> {
