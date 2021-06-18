@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -96,6 +97,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         btnWishlist.setOnClickListener(this)
+        btnCall.setOnClickListener(this)
     }
 
     private fun setDetailLaptop(list: ArrayList<ModelLaptop>) {
@@ -177,6 +179,11 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
                     Toast.makeText(this, "$listNama dihapus dari favorit!", Toast.LENGTH_SHORT).show()
                     btnWishlist.setText("Favorite")
                 }
+            }
+            R.id.btn_call -> {
+                val noHpPenjual: String = listLaptop[0].noHpPenjual
+                val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$noHpPenjual"))
+                startActivity(intent)
             }
         }
     }
