@@ -66,7 +66,7 @@ class WishlistActivity : AppCompatActivity() {
         this.finish()
     }
 
-    fun loadNamaWishlist() {
+    private fun loadNamaWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(DetailActivity.SHARED_PREFS_NAMA, Context.MODE_PRIVATE)
         val gson = Gson()
         val json  = sharedPreferences.getString(DetailActivity.STATE_NAMA, null)
@@ -75,7 +75,7 @@ class WishlistActivity : AppCompatActivity() {
 
     }
 
-    fun loadPhotoWishlist() {
+    private fun loadPhotoWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(DetailActivity.SHARED_PREFS_PHOTO, Context.MODE_PRIVATE)
         val gson = Gson()
         val json  = sharedPreferences.getString(DetailActivity.STATE_PHOTO, null)
@@ -84,7 +84,7 @@ class WishlistActivity : AppCompatActivity() {
 
     }
 
-    fun loadDescWishlist() {
+    private fun loadDescWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(DetailActivity.SHARED_PREFS_DESC, Context.MODE_PRIVATE)
         val gson = Gson()
         val json = sharedPreferences.getString(DetailActivity.STATE_DESC, null)
@@ -93,7 +93,7 @@ class WishlistActivity : AppCompatActivity() {
 
     }
 
-    fun loadHargaWishlist() {
+    private fun loadHargaWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(DetailActivity.SHARED_PREFS_HARGA, Context.MODE_PRIVATE)
         val gson = Gson()
         val json  = sharedPreferences.getString(DetailActivity.STATE_HARGA, null)
@@ -101,7 +101,7 @@ class WishlistActivity : AppCompatActivity() {
         DetailActivity.dataW.harga = gson.fromJson(json, type)
     }
 
-    fun loadNamaPenjualWishlist() {
+    private fun loadNamaPenjualWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(DetailActivity.SHARED_PREFS_NAMA_PENJUAL, Context.MODE_PRIVATE)
         val gson = Gson()
         val json  = sharedPreferences.getString(DetailActivity.STATE_NAMA_PENJUAL, "asdhk")
@@ -109,7 +109,7 @@ class WishlistActivity : AppCompatActivity() {
         DetailActivity.dataW.namaPenjual = gson.fromJson(json, type)
     }
 
-    fun loadPhotoPenjualWishlist() {
+    private fun loadPhotoPenjualWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(DetailActivity.SHARED_PREFS_PHOTO_PENJUAL, Context.MODE_PRIVATE)
         val gson = Gson()
         val json  = sharedPreferences.getString(DetailActivity.STATE_PHOTO_PENJUAL, null)
@@ -117,7 +117,7 @@ class WishlistActivity : AppCompatActivity() {
         DetailActivity.dataW.photoPenjual = gson.fromJson(json, type)
     }
 
-    fun loadNoHpPenjualWishlist() {
+    private fun loadNoHpPenjualWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(DetailActivity.SHARED_PREFS_NOHP_PENJUAL, Context.MODE_PRIVATE)
         val gson = Gson()
         val json  = sharedPreferences.getString(DetailActivity.STATE_NOHP_PENJUAL, "aaa")

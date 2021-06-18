@@ -188,7 +188,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-     fun saveNamaWishlist() {
+     private fun saveNamaWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(SHARED_PREFS_NAMA, Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         val gson = Gson()
@@ -197,7 +197,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         editor.apply()
     }
 
-     fun savePhotoWishlist() {
+     private fun savePhotoWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(SHARED_PREFS_PHOTO, Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         val gson = Gson()
@@ -206,7 +206,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         editor.apply()
     }
 
-    fun saveDescWishlist() {
+    private fun saveDescWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(SHARED_PREFS_DESC, Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         val gson = Gson()
@@ -215,7 +215,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         editor.apply()
     }
 
-    fun saveHargaWishlist() {
+    private fun saveHargaWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(SHARED_PREFS_HARGA, Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         val gson = Gson()
@@ -224,7 +224,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         editor.apply()
     }
 
-    fun saveNamaPenjualWishlist() {
+    private fun saveNamaPenjualWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(SHARED_PREFS_NAMA_PENJUAL, Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         val gson = Gson()
@@ -233,7 +233,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         editor.apply()
     }
 
-    fun savePhotoPenjualWishlist() {
+    private fun savePhotoPenjualWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(SHARED_PREFS_PHOTO_PENJUAL, Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         val gson = Gson()
@@ -242,7 +242,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         editor.apply()
     }
 
-    fun saveNoHpPenjualWishlist() {
+    private fun saveNoHpPenjualWishlist() {
         val sharedPreferences: SharedPreferences = getSharedPreferences(SHARED_PREFS_NOHP_PENJUAL, Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         val gson = Gson()
