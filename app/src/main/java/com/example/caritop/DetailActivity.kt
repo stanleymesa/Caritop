@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.NavUtils
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 
@@ -258,6 +259,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
                 myIntent = Intent(this, WishlistActivity::class.java)
             }
             "MainActivity" -> {
+                MainActivity.thisActivity.main.finish()
                 myIntent = Intent(this, MainActivity::class.java)
             }
         }

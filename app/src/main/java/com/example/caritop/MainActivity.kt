@@ -1,5 +1,6 @@
 package com.example.caritop
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -18,11 +19,15 @@ class MainActivity : AppCompatActivity() {
     private var list: ArrayList<ModelLaptop> = arrayListOf()
     private lateinit var rv_laptop: RecyclerView
     private var title: String = "Home"
+    object thisActivity{
+        lateinit var main: Activity
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setActionBar(title)
+        thisActivity.main = this
 
         this.list.addAll(DataLaptop().listData)
         rv_laptop = findViewById(R.id.rv_laptop)
@@ -90,7 +95,7 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("indices", listToDetail)
         intent.putExtra("from", "MainActivity")
         startActivity(intent)
-        this.finish()
+//        this.finish()
 
     }
 
