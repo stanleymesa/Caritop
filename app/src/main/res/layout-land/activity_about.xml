@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
+        android:layout_marginTop="16dp"
         android:gravity="center">
 
     <TextView
@@ -22,36 +23,37 @@
         android:layout_height="wrap_content"
         android:text="@string/about_developer_judul"
         android:textSize="40sp"
-        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:textColor="@color/cardview_light_background"
         android:fontFamily="cursive"/>
 
     <androidx.cardview.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:layout_width="320dp"
+        android:layout_width="600dp"
         android:layout_height="wrap_content"
-        android:foregroundGravity="center_vertical"
+        android:layout_marginBottom="24dp"
         app:cardCornerRadius="16dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_marginBottom="16dp">
+            android:gravity="center_vertical">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="220dp"
-                android:layout_height="240dp"
-                android:layout_marginTop="8dp"
+                android:id="@+id/about_photo"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_margin="16dp"
                 android:src="@drawable/fotojasitem">
 
             </de.hdodenhof.circleimageview.CircleImageView>
 
             <TableLayout
+                android:id="@+id/about_table"
+                android:layout_toEndOf="@id/about_photo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="200dp"
+                android:gravity="center_vertical">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -65,7 +67,7 @@
                         android:layout_marginTop="8dp"
                         android:text="@string/nama"
                         android:textStyle="bold"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         android:fontFamily="casual"/>
 
                     <TextView
@@ -74,7 +76,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/aboutNama"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         android:fontFamily="casual"
                         android:textStyle="bold"/>
 
@@ -92,7 +94,7 @@
                         android:layout_marginTop="8dp"
                         android:text="@string/email"
                         android:textStyle="bold"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         android:fontFamily="casual"/>
 
                     <TextView
@@ -101,16 +103,15 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/stanleymesa2001_gmail_com"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         android:fontFamily="casual"
                         android:textStyle="bold"/>
 
                 </TableRow>
 
-
             </TableLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
 
 
     </androidx.cardview.widget.CardView>
