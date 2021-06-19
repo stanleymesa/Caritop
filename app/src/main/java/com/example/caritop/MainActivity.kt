@@ -95,7 +95,6 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("indices", listToDetail)
         intent.putExtra("from", "MainActivity")
         startActivity(intent)
-//        this.finish()
 
     }
 

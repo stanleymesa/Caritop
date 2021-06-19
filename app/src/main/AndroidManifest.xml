@@ -26,7 +26,8 @@
 
         <activity android:name=".WishlistAdapter" />
 
-        <activity android:name=".SplashActivity">
+        <activity android:name=".SplashActivity"
+            android:screenOrientation="locked">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
