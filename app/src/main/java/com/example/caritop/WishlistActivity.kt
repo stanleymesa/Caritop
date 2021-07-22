@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import org.json.JSONObject
+import java.lang.Exception
 
 class WishlistActivity : AppCompatActivity() {
 
@@ -23,10 +25,11 @@ class WishlistActivity : AppCompatActivity() {
         rv_wishlist = findViewById(R.id.rv_wishlist)
         rv_wishlist.setHasFixedSize(true)
 
-        // jika data wishlist kosong, jangan load wishlist
-        if (DetailActivity.dataW.dataWishlist.size != 0) {
+        // Jika wishlist kosong, intent ke empty
+        try {
             loadAllWishlist()
-        }
+        } catch (e:Exception){}
+
         showRecyclerWishlist()
     }
 
@@ -62,7 +65,7 @@ class WishlistActivity : AppCompatActivity() {
         this.finish()
     }
 
-    private fun loadAllWishlist() {
+    fun loadAllWishlist() {
         loadNamaWishlist()
         loadPhotoWishlist()
         loadDescWishlist()
@@ -70,6 +73,7 @@ class WishlistActivity : AppCompatActivity() {
         loadNamaPenjualWishlist()
         loadPhotoPenjualWishlist()
         loadNoHpPenjualWishlist()
+
     }
 
     private fun loadNamaWishlist() {

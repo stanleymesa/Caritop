@@ -54,8 +54,9 @@ class MainActivity : AppCompatActivity() {
                 showRecyclerList()
             }
             R.id.action_wishlist -> {
-                val intent = Intent(this, WishlistActivity::class.java)
+                val intent: Intent = Intent(this, WishlistActivity::class.java)
                 startActivity(intent)
+
             }
             R.id.action_about -> {
                 val intent = Intent(this, AboutActivity::class.java)

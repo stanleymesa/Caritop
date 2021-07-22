@@ -177,7 +177,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun  saveAllWishlist() {
+    fun saveAllWishlist() {
         saveNamaWishlist()
         savePhotoWishlist()
         saveDescWishlist()
