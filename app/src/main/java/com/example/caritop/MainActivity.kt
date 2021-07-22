@@ -81,16 +81,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun goToDetail(data: ModelLaptop) {
         var listToDetail: ArrayList<ModelLaptop> = arrayListOf()
-        val modelLaptop = ModelLaptop()
-        modelLaptop.merk = data.merk
-        modelLaptop.name = data.name
-        modelLaptop.photo = data.photo
-        modelLaptop.desc = data.desc
-        modelLaptop.harga = data.harga
-        modelLaptop.namaPenjual = data.namaPenjual
-        modelLaptop.photoPenjual = data.photoPenjual
-        modelLaptop.noHpPenjual = data.noHpPenjual
-        listToDetail.add(modelLaptop)
+//        val modelLaptop = ModelLaptop()
+//        modelLaptop.merk = data.merk
+//        modelLaptop.name = data.name
+//        modelLaptop.photo = data.photo
+//        modelLaptop.desc = data.desc
+//        modelLaptop.harga = data.harga
+//        modelLaptop.namaPenjual = data.namaPenjual
+//        modelLaptop.photoPenjual = data.photoPenjual
+//        modelLaptop.noHpPenjual = data.noHpPenjual
+//        listToDetail.add(modelLaptop)
+        listToDetail.addAll(listOf(data))
 
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra("indices", listToDetail)
