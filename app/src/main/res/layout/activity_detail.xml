@@ -110,10 +110,10 @@
 
                     <Button
                         android:id="@+id/btn_call"
-                        android:layout_width="50dp"
-                        android:layout_height="20dp"
+                        android:layout_width="70dp"
+                        android:layout_height="35dp"
                         android:text="@string/call"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:layout_marginStart="16dp"
                         android:textColor="@color/white"
                         android:background="@color/callButton"/>

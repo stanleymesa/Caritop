@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.NavUtils
 import com.bumptech.glide.Glide
+import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 
 
@@ -152,7 +153,9 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
                     dataW.noHpPenjual.add(listNoHpPenjual)
 
                     saveAllWishlist()
-                    Toast.makeText(this, "$listNama masuk ke list favorit!", Toast.LENGTH_SHORT).show()
+                    val snackbar: Snackbar = Snackbar.make(v, "$listNama masuk ke list favorit!", Snackbar.LENGTH_SHORT)
+                    snackbar.show()
+//                    Toast.makeText(this, "$listNama masuk ke list favorit!", Toast.LENGTH_SHORT).show()
                     btnWishlist.setText("Unfavorite")
                 } else {
                     val position = dataW.nama.indexOf(listLaptop[0].name)
@@ -165,7 +168,9 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
                     dataW.noHpPenjual.removeAt(position)
 
                     saveAllWishlist()
-                    Toast.makeText(this, "$listNama dihapus dari favorit!", Toast.LENGTH_SHORT).show()
+                    val snackbar: Snackbar = Snackbar.make(v, "$listNama dihapus dari favorit!", Snackbar.LENGTH_SHORT)
+                    snackbar.show()
+//                    Toast.makeText(this, "$listNama dihapus dari favorit!", Toast.LENGTH_SHORT).show()
                     btnWishlist.setText("Favorite")
                 }
             }
