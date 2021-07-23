@@ -154,6 +154,8 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
 
                     saveAllWishlist()
                     val snackbar: Snackbar = Snackbar.make(v, "$listNama masuk ke list favorit!", Snackbar.LENGTH_SHORT)
+                    snackbar.setAction("OK", View.OnClickListener {})
+                    snackbar.setAnchorView(btnWishlist)
                     snackbar.show()
                     btnWishlist.setText("Unfavorite")
                 } else {
@@ -168,6 +170,8 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
 
                     saveAllWishlist()
                     val snackbar: Snackbar = Snackbar.make(v, "$listNama dihapus dari favorit!", Snackbar.LENGTH_SHORT)
+                    snackbar.setAction("OK", View.OnClickListener {})
+                    snackbar.setAnchorView(btnWishlist)
                     snackbar.show()
                     btnWishlist.setText("Favorite")
                 }
