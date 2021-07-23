@@ -155,7 +155,6 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
                     saveAllWishlist()
                     val snackbar: Snackbar = Snackbar.make(v, "$listNama masuk ke list favorit!", Snackbar.LENGTH_SHORT)
                     snackbar.show()
-//                    Toast.makeText(this, "$listNama masuk ke list favorit!", Toast.LENGTH_SHORT).show()
                     btnWishlist.setText("Unfavorite")
                 } else {
                     val position = dataW.nama.indexOf(listLaptop[0].name)
@@ -170,7 +169,6 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
                     saveAllWishlist()
                     val snackbar: Snackbar = Snackbar.make(v, "$listNama dihapus dari favorit!", Snackbar.LENGTH_SHORT)
                     snackbar.show()
-//                    Toast.makeText(this, "$listNama dihapus dari favorit!", Toast.LENGTH_SHORT).show()
                     btnWishlist.setText("Favorite")
                 }
             }
